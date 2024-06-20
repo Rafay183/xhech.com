@@ -1,0 +1,96 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xhech - Improving Ecosystems</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f500; /* Light background color for contrast */
+      }
+  
+      .ticker {
+        width: 90%; /* Slightly narrower for a navbar-like appearance */
+        margin: 20px auto; /* Centered with some margin */
+        overflow: hidden;
+        border: 2px solid #ccc; /* Light grey border */
+        border-radius: 15px; /* Rounded borders */
+        padding: 10px; /* Padding inside the ticker */
+        background-color: transparent; /* Transparent background */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+        position: relative; /* Ensure proper positioning */
+        color: #000; /* Black text color */
+      }
+  
+      .ticker ul {
+        display: inline-block;
+        white-space: nowrap;
+        animation: marquee 10s linear infinite; /* Adjust speed as needed */
+        padding: 0; /* Remove default padding */
+        margin: 0; /* Remove default margin */
+        list-style: none; /* Remove bullet points */
+      }
+  
+      .ticker li {
+        display: inline;
+        margin-right: 50px; /* Space between items */
+        font-size: 18px; /* Font size */
+        color: #000; /* Black text color */
+      }
+  
+      @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-100%); }
+      }
+  
+      .ticker-button {
+        display: inline-block;
+        margin-left: 20px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff; /* Blue button background */
+        color: #fff; /* White text */
+        text-decoration: none;
+        font-size: 16px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        transition: background-color 0.3s ease;
+      }
+  
+      .ticker-button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+      }
+    </style>
+  </head>
+  <body>
+  
+  <div class="ticker">
+    <ul>
+      <li>XHECH Launches New AI-Powered Design Tool</li>
+      <li>Our Latest Blog: The Future of Content Creation</li>
+      <li>XHECH Wins Award for Innovative Web Development Project</li>
+    </ul>
+    <!-- <a href="https://yourblogpage.com" class="ticker-button">Read More</a> -->
+  </div>
+  
+  <script>
+    $(document).ready(function() {
+      $('.ticker').each(function() {
+        var ticker = $(this);
+        var items = ticker.find('li');
+        var currentItem = 0;
+  
+        function showNextItem() {
+          items.eq(currentItem).fadeOut();
+          currentItem = (currentItem + 1) % items.length;
+          items.eq(currentItem).fadeIn();
+        }
+  
+        setInterval(showNextItem, 3000); // Change item every 3 seconds
+      });
+    });
+  </script>
+  
+  </body>
